@@ -62,7 +62,7 @@ try {
     const randomChar = randomInt(0, lines[n].length);
 
     // on déclare une variable avec le nombre de tentative pour gagner
-    let tentative = 7;
+    let tentative = 10;
     //console.log(`random words: ${wordResult}`)
 
     // on declare la variable ou sera afficher le mot qui doit etre trouver 
