@@ -46,6 +46,17 @@ function getIndexOf(character, word, position)
 
 try {
 
+    if (!fs.existsSync('dict.txt')) {
+        console.log('Error: file does not exist')
+        process.exit(1)
+    }
+
+    if (!fs.statSync('dict.txt').isFile()) {
+        console.log('Error: not a file')
+        process.exit(1)
+    }
+
+
     // je recupère toutes les lignes du fichier
     const data = fs.readFileSync('dict.txt', 'UTF-8');
 
@@ -137,6 +148,10 @@ try {
         }
     }
 
-} catch (err) {
-    console.error(err);
+} catch (e) {
+    console.error('An error somewhere') // write to stderr instead of stdout
+    console.error(`name: ${e.name}`) // nom de l'erreur, en général c'est le nom de la classe
+    console.error(`code: ${e.code}`) // code de l'erreur
+    console.error(`message: ${e.message}`) // message de l'erreur
+    console.error(`stack: ${e.stack}`) // la stack frame pour voir les appels successifs jusqu'a l'erreur
 }
